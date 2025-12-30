@@ -2,7 +2,11 @@ all: build run
 
 build: FORCE
 	mkdir build -p
-	cd build && CC=clang CXX=clang++ && cmake .. && cmake --build .
+	cd build && cmake .. \
+		-DCMAKE_C_COMPILER=clang \
+		-DCMAKE_CXX_COMPILER=clang++ \
+		-DCMAKE_CXX_FLAGS="--gcc-toolchain=/usr --gcc-install-dir=/usr/lib/gcc/x86_64-linux-gnu/13" \
+		&& cmake --build .
 
 run: build
 	./build/tdbs
