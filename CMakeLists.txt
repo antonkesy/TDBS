@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.14)
-project(RaylibTest)
+project(TDBS LANGUAGES C CXX)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
@@ -25,16 +25,16 @@ set(SOURCE_DIR "${PROJECT_SOURCE_DIR}/src")
 
 file(GLOB SOURCES "${SOURCE_DIR}/*.cpp")
 list(REMOVE_ITEM SOURCES "${SOURCE_DIR}/main.cpp")
-add_library(RaylibTest ${SOURCES})
-target_include_directories(RaylibTest PUBLIC include external/raygui/src)
-target_link_libraries(RaylibTest raylib fmt::fmt)
+add_library(${PROJECT_NAME} ${SOURCES})
+target_include_directories(${PROJECT_NAME} PUBLIC include external/raygui/src)
+target_link_libraries(${PROJECT_NAME} raylib fmt::fmt)
 
-add_executable(app src/main.cpp)
-target_link_libraries(app RaylibTest)
+add_executable(tdbs src/main.cpp)
+target_link_libraries(tdbs ${PROJECT_NAME})
 
 find_package(GTest REQUIRED)
 enable_testing()
 file(GLOB TEST_SRCS "tests/*.cpp")
 add_executable(tests ${TEST_SRCS})
-target_link_libraries(tests GTest::GTest GTest::Main RaylibTest)
+target_link_libraries(tests GTest::GTest GTest::Main ${PROJECT_NAME})
 add_test(NAME Tests COMMAND tests)
