@@ -45,7 +45,9 @@ void inputThread() {
       int mouseX = GetMouseX();
       int mouseY = GetMouseY();
 
-      if (CheckCollisionPointRec((Vector2){static_cast<float>(mouseX), static_cast<float>(mouseY)}, buttonRec)) {
+      if (CheckCollisionPointRec(
+              (Vector2){static_cast<float>(mouseX), static_cast<float>(mouseY)},
+              buttonRec)) {
         continue;
       }
 
@@ -64,7 +66,9 @@ void inputThread() {
       int mouseX = GetMouseX();
       int mouseY = GetMouseY();
 
-      if (CheckCollisionPointRec((Vector2){static_cast<float>(mouseX), static_cast<float>(mouseY)}, buttonRec)) {
+      if (CheckCollisionPointRec(
+              (Vector2){static_cast<float>(mouseX), static_cast<float>(mouseY)},
+              buttonRec)) {
         continue;
       }
 
