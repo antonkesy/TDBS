@@ -141,10 +141,6 @@ std::string ColorToString(Color color) {
 }
 
 void Project::testRun() const {
-  // TODO(ak): 1. falling sand game
-  // TODO(ak): 2. refactor
-  // TODO(ak): 3. add steam multiplayer
-
   InitWindow(screenWidth, screenHeight, "Falling Sand");
 
   std::thread inputWorker(inputThread);
