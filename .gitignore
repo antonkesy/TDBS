@@ -1,0 +1,61 @@
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# CMake build directory
+build/
+
+# CMake install directory
+install/
+
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+Testing/
+
+# Visual Studio Code
+.vscode/
+
+# Xcode
+*.xcodeproj/
+*.xcworkspace/
+
+# Eclipse
+.project
+.cproject
+.settings/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Qt Creator
+*.pro.user
+*.qbs.user
+*.qmlproject.user
+*.cmake.user
+
+.cache
