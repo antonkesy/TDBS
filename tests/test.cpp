@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 
-#include "project.h"
+#include "project.hpp"
 
 TEST(ProjectTest, SomeFunction) {
   Project project;
