@@ -1,14 +1,15 @@
-all: build run
+.PHONY: config build run test valgrind clean docker-build docker-run docker-test
 
-build: FORCE
+all: config build run
+
+config:
 	mkdir build -p
-	cd build && cmake .. \
-		-DCMAKE_C_COMPILER=clang \
-		-DCMAKE_CXX_COMPILER=clang++ \
-		-DCMAKE_CXX_FLAGS="--gcc-toolchain=/usr --gcc-install-dir=/usr/lib/gcc/x86_64-linux-gnu/13" \
-		&& cmake --build .
+	cd build && cmake ..
 
-run: build
+build:
+	cd build && cmake --build .
+
+run:
 	./build/tdbs
 
 test: build
@@ -35,5 +36,3 @@ docker-run: docker-build
 
 docker-test: docker-build
 	docker run --rm tdbs ./build/tests
-
-FORCE: ;
