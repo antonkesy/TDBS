@@ -27,7 +27,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN make build
+RUN make config build
 
 FROM ubuntu:24.04 AS runtime
 ENV DEBIAN_FRONTEND=noninteractive
