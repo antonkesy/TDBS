@@ -6,6 +6,13 @@ config:
 	mkdir build -p
 	cd build && cmake ..
 
+config-ubuntu:
+	mkdir build -p
+	cd build && cmake .. \
+		-DCMAKE_C_COMPILER=clang \
+		-DCMAKE_CXX_COMPILER=clang++ \
+		-DCMAKE_CXX_FLAGS="--gcc-toolchain=/usr --gcc-install-dir=/usr/lib/gcc/x86_64-linux-gnu/13"
+
 build:
 	cd build && cmake --build .
 
