@@ -44,6 +44,12 @@ const Rectangle buttonRec = {50, 50, 150, 30};
 void inputThread() {
   while (!WindowShouldClose()) {
     if (IsMouseButtonDown(MOUSE_BUTTON_LEFT)) {
+      // Skip input if mouse is over ImGui window
+      if (ImGui::GetIO().WantCaptureMouse) {
+        std::this_thread::sleep_for(std::chrono::milliseconds(1));
+        continue;
+      }
+
       int mouseX = GetMouseX();
       int mouseY = GetMouseY();
 
@@ -65,6 +71,12 @@ void inputThread() {
     }
 
     if (IsMouseButtonDown(MOUSE_BUTTON_RIGHT)) {
+      // Skip input if mouse is over ImGui window
+      if (ImGui::GetIO().WantCaptureMouse) {
+        std::this_thread::sleep_for(std::chrono::milliseconds(1));
+        continue;
+      }
+
       int mouseX = GetMouseX();
       int mouseY = GetMouseY();
 
