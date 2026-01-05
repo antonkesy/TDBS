@@ -48,7 +48,6 @@ void inputThread() {
     if (IsMouseButtonDown(MOUSE_BUTTON_LEFT)) {
       // Skip input if mouse is over ImGui window
       if (ImGui::GetIO().WantCaptureMouse) {
-        std::this_thread::sleep_for(std::chrono::milliseconds(1));
         continue;
       }
 
@@ -75,7 +74,6 @@ void inputThread() {
     if (IsMouseButtonDown(MOUSE_BUTTON_RIGHT)) {
       // Skip input if mouse is over ImGui window
       if (ImGui::GetIO().WantCaptureMouse) {
-        std::this_thread::sleep_for(std::chrono::milliseconds(1));
         continue;
       }
 
