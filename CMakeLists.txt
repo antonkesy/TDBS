@@ -13,6 +13,26 @@ endif()
 add_subdirectory(external/raylib)
 set_target_properties(raylib PROPERTIES COMPILE_OPTIONS "")
 
+# imgui
+set(IMGUI_PATH external/imgui)
+set(IMGUI_SOURCES
+    ${IMGUI_PATH}/imgui.cpp
+    ${IMGUI_PATH}/imgui_demo.cpp
+    ${IMGUI_PATH}/imgui_draw.cpp
+    ${IMGUI_PATH}/imgui_tables.cpp
+    ${IMGUI_PATH}/imgui_widgets.cpp
+)
+# rlImGui
+add_library(rlImGui
+    external/rlImGui/rlImGui.cpp
+    ${IMGUI_SOURCES}
+)
+target_include_directories(rlImGui PUBLIC
+    external/rlImGui
+    ${IMGUI_PATH}
+)
+target_link_libraries(rlImGui PUBLIC raylib)
+
 add_subdirectory(external/fmt)
 
 if(CMAKE_BUILD_TYPE MATCHES Release)
@@ -27,7 +47,7 @@ file(GLOB SOURCES "${SOURCE_DIR}/*.cpp")
 list(REMOVE_ITEM SOURCES "${SOURCE_DIR}/main.cpp")
 add_library(${PROJECT_NAME} ${SOURCES})
 target_include_directories(${PROJECT_NAME} PUBLIC include external/raygui/src)
-target_link_libraries(${PROJECT_NAME} raylib fmt::fmt)
+target_link_libraries(${PROJECT_NAME} raylib rlImGui fmt::fmt)
 
 add_executable(tdbs src/main.cpp)
 target_link_libraries(tdbs ${PROJECT_NAME})

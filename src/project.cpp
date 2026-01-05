@@ -6,6 +6,8 @@
 
 #include "fmt/format.h"
 #include "raylib.h"
+#include "imgui.h"
+#include "rlImGui.h"
 
 #define RAYGUI_IMPLEMENTATION
 #include "raygui.h"
@@ -146,6 +148,7 @@ std::string ColorToString(Color color) {
 
 void Project::testRun() const {
   InitWindow(screenWidth, screenHeight, "Falling Sand");
+  rlImGuiSetup(true);
 
   std::thread inputWorker(inputThread);
 
@@ -170,6 +173,12 @@ void Project::testRun() const {
     BeginDrawing();
     ClearBackground(RAYWHITE);
 
+    rlImGuiBegin();
+    ImGui::Begin("Hello");
+    ImGui::Text("rlImGui is working!");
+    ImGui::End();
+    rlImGuiEnd();
+
     for (int i = 0; i < width; ++i) {
       for (int j = 0; j < height; ++j) {
         if (pixels[i][j].particle.has_value()) {
@@ -188,5 +197,6 @@ void Project::testRun() const {
   }
 
   inputWorker.join();
+  rlImGuiShutdown();
   CloseWindow();
 }
