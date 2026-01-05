@@ -3,6 +3,6 @@
 #include "project.hpp"
 
 TEST(ProjectTest, SomeFunction) {
-  Project project;
+  tdbs::Project project;
   // EXPECT_EQ(17, project.someFunction());
 }

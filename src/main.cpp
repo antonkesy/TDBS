@@ -1,6 +1,6 @@
 #include "project.hpp"
 
 int main() {
-  Project p;
+  tdbs::Project p;
   p.testRun();
 }

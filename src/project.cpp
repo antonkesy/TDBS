@@ -12,6 +12,8 @@
 #define RAYGUI_IMPLEMENTATION
 #include "raygui.h"
 
+namespace tdbs {
+
 Color addColor = RED;
 
 struct Particle {
@@ -212,3 +214,4 @@ void Project::testRun() const {
   rlImGuiShutdown();
   CloseWindow();
 }
+};  // namespace tdbs
