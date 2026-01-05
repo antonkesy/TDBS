@@ -5,8 +5,8 @@
 #include <vector>
 
 #include "fmt/format.h"
-#include "raylib.h"
 #include "imgui.h"
+#include "raylib.h"
 #include "rlImGui.h"
 
 #define RAYGUI_IMPLEMENTATION
