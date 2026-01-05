@@ -46,7 +46,8 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /app
 
-# Copy the built executable from builder stage
+# Copy the built executables from builder stage
 COPY --from=builder /app/build/tdbs .
+COPY --from=builder /app/build/tests .
 
 CMD ["./tdbs"]

@@ -42,4 +42,4 @@ docker-run: docker-build
 	xhost -local:docker
 
 docker-test: docker-build
-	docker run --rm tdbs ./build/tests
+	docker run --rm tdbs ./tests
